@@ -34,3 +34,23 @@ console.log("odd number " + sfilter);
 console.log("------");
 let sMap = sfilter.map((s) => s * 5);
 console.log("map multiply by 5", sMap);
+
+let sumMap = sMap.reduce((sum, s) => sum - s, 0);
+console.log("-------------");
+console.log(sumMap);
+sumMap = sMap.reduce((sum, s) => sum + s, 0);
+console.log("-------------");
+console.log(sumMap);
+
+console.log("-------------");
+console.log("-------------");
+
+let fruits = ["banana", "grape", "pineapple", "jackFruit", "apple"];
+console.log(fruits.sort());
+console.log(fruits.reverse());
+console.log("-------------");
+console.log("-------------");
+
+let sNum = [11, 12, 13, 14, 15, 1234, 24, 3432, 154456, 7, 63, 445, 44, 5, 7];
+console.log(sNum.sort((s, b) => s - b)); //bubble sort
+console.log(sNum.sort((s, b) => -s + b));
