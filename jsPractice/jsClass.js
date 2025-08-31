@@ -1,4 +1,4 @@
-class Person {
+module.exports = class Person {
   age = 25;
 
   getAge() {
@@ -14,10 +14,10 @@ class Person {
   fullName() {
     console.log(this.firstName + " " + this.lastName);
   }
-}
+};
 
-appu = new Person("Aruneshwar", "AR");
-console.log(appu);
-console.log(appu.getAge());
-console.log(appu.fullName());
-appu.fullName();
+// appu = new Person("Aruneshwar", "AR");
+// console.log(appu);
+// console.log(appu.getAge());
+// console.log(appu.fullName());
+// appu.fullName();

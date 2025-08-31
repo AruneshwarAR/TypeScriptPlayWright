@@ -6,7 +6,7 @@ let person = {
     return this.firstName + " " + this.lastName;
   },
 };
-
+const Person = require("./jsClass.js");
 console.log(person.firstName);
 console.log(person["lastName"]);
 
@@ -30,3 +30,5 @@ for (let key in person) {
     console.log("*********");
   }
 }
+let ar = new Person("appu", "kutti");
+console.log(ar);
