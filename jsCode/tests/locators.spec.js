@@ -6,5 +6,6 @@ test.only("browser launch", async ({ page }) => {
   await page.locator("#password").fill("fasfaf");
   await page.locator("[type='checkbox']").check();
   await page.locator("[value='Sign In']").click();
-  console.log(await page.locator("[style*='block']"));
+  console.log(await page.locator("[style*='block']").textContent()); // to get text from the element
+  await expect(page.locator("[style*='block']")).toContainText("Incorrec"); // assert webelement contains text
 });
