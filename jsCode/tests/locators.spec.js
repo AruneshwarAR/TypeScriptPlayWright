@@ -19,4 +19,5 @@ test.only("browser launch", async ({ page }) => {
   let linkss = await page.locator(".card-title a").first().textContent();
   console.log(linkss);
   console.log(links);
+  //.allTextContent
 });
