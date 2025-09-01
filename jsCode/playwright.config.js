@@ -29,6 +29,10 @@ export default defineConfig({
     trace: "on-first-retry",
     headless: false,
     screenshot: "on",
+    timeout: 30 * 1000, //timeout for whole test
+    expect: {
+      timeout: 5 * 1000, //timeout for assertion
+    },
   },
 
   /* Configure projects for major browsers */
