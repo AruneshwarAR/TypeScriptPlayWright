@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-import { useReducer } from "react";
 test("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
   const passWord = page.locator("#password");
@@ -35,6 +34,8 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   const passWord = page.locator("#userPassword"); //Appukutti1
   const loginbtn = page.locator("#login");
   const cardBody = page.locator(".card-body b");
+
+  page.goto(loginPage);
   await userName.fill("appu@kutti.com");
   await passWord.fill("Appukutti1");
   await loginbtn.click();
