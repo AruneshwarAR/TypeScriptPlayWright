@@ -3,6 +3,7 @@ test.only("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
   const passWord = page.locator("#password");
   const signIn = page.locator("[value='Sign In']");
+  const card = page.locator(".card-title a");
 
   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
   console.log(await page.title());
@@ -15,9 +16,14 @@ test.only("browser launch", async ({ page }) => {
   await userName.fill("rahulshettyacademy");
   await passWord.fill("learning");
   await signIn.click();
-  let links = await page.locator(".card-title a").nth(1).textContent();
-  let linkss = await page.locator(".card-title a").first().textContent();
-  console.log(linkss);
-  console.log(links);
-  //.allTextContent
+  //   let links = await card.nth(1).textContent();
+  //   let linkss = await card.first().textContent();
+  //   console.log(linkss);
+  //   console.log(links);
+  await expect(card).toBeVisible();
+  let Products = await card.allTextContents();
+  //   for (let Product in Products) {
+  console.log(Products.toString());
+  console.log(Products);
+  //   }
 });
