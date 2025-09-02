@@ -39,7 +39,9 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   await userName.fill("appu@kutti.com");
   await passWord.fill("Appukutti1");
   await loginbtn.click();
-  await expect(cardBody.last()).toBeVisible();
+  //  await expect(cardBody.last()).toBeVisible();//aruneshwar way to wait
+  await cardBody.waitFor(); //instructor way to wait latest
+  //   await page.waitForLoadState("networkidle"); //instructor way to wait old
   const products = await cardBody.allTextContents();
   console.log(products);
 });
