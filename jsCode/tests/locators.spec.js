@@ -20,7 +20,7 @@ test.only("browser launch", async ({ page }) => {
   //   let linkss = await card.first().textContent();
   //   console.log(linkss);
   //   console.log(links);
-  await expect(card).toBeVisible();
+  await expect(card.last()).toBeVisible();
   let Products = await card.allTextContents();
   //   for (let Product in Products) {
   console.log(Products.toString());
