@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { useReducer } from "react";
 test("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
   const passWord = page.locator("#password");
@@ -31,5 +32,13 @@ test("browser launch", async ({ page }) => {
 test.only("browser Rahulshetty academy client", async ({ page }) => {
   const loginPage = "https://rahulshettyacademy.com/client/auth/login";
   const userName = page.locator("#userEmail"); //appu@kutti.com
-  const passWord = page.locator(""); //Appukutti1
+  const passWord = page.locator("#userPassword"); //Appukutti1
+  const loginbtn = page.locator("#login");
+  const cardBody = page.locator(".card-body b");
+  await userName.fill("appu@kutti.com");
+  await passWord.fill("Appukutti1");
+  await loginbtn.click();
+  await expect(cardBody.last()).toBeVisible();
+  const products = await cardBody.allTextContents();
+  console.log(products);
 });
