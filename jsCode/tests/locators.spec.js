@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-test.only("browser launch", async ({ page }) => {
+test("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
   const passWord = page.locator("#password");
   const signIn = page.locator("[value='Sign In']");
@@ -26,4 +26,10 @@ test.only("browser launch", async ({ page }) => {
   console.log(Products.toString());
   console.log(Products);
   //   }
+});
+
+test.only("browser Rahulshetty academy client", async ({ page }) => {
+  const loginPage = "https://rahulshettyacademy.com/client/auth/login";
+  const userName = page.locator("#userEmail"); //appu@kutti.com
+  const passWord = page.locator(""); //Appukutti1
 });
