@@ -28,7 +28,7 @@ test("browser launch", async ({ page }) => {
   //   }
 });
 
-test.only("browser Rahulshetty academy client", async ({ page }) => {
+test("browser Rahulshetty academy client", async ({ page }) => {
   const loginPage = "https://rahulshettyacademy.com/client/auth/login";
   const userName = page.locator("#userEmail"); //appu@kutti.com
   const passWord = page.locator("#userPassword"); //Appukutti1
@@ -39,10 +39,29 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   await userName.fill("appu@kutti.com");
   await passWord.fill("Appukutti1");
   await loginbtn.click();
+  await page.pause();
   //await expect(cardBody.last()).toBeVisible(); //aruneshwar way to wait
   await cardBody.last().waitFor(); //instructor way to wait latest
   //   await page.waitForLoadState("networkidle"); //instructor way to wait old
   const products = await cardBody.allTextContents();
   console.log(products);
+});
+
+test.only("UI Test", async ({ page }) => {
+  const userName = page.locator("#username");
+  const passWord = page.locator("#password");
+  const signIn = page.locator("[value='Sign In']");
+  const card = page.locator(".card-title a");
+
+  await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+  console.log(await page.title());
+  await userName.fill("rahulshettyacademy");
+  await passWord.fill("learning");
+  await page.locator("[type='checkbox']").check();
   await page.pause();
+  await signIn.click();
+  await card.last().waitFor();
+  let Products = await card.allTextContents();
+  console.log(Products.toString());
+  console.log(Products);
 });
