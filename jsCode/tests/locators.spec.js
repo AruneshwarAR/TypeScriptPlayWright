@@ -44,5 +44,5 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   //   await page.waitForLoadState("networkidle"); //instructor way to wait old
   const products = await cardBody.allTextContents();
   console.log(products);
-  page.pause();
+  await page.pause();
 });
