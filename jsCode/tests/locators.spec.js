@@ -35,13 +35,14 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   const loginbtn = page.locator("#login");
   const cardBody = page.locator(".card-body b");
 
-  page.goto(loginPage);
+  await page.goto(loginPage);
   await userName.fill("appu@kutti.com");
   await passWord.fill("Appukutti1");
   await loginbtn.click();
-  //  await expect(cardBody.last()).toBeVisible();//aruneshwar way to wait
-  await cardBody.waitFor(); //instructor way to wait latest
+  //await expect(cardBody.last()).toBeVisible(); //aruneshwar way to wait
+  await cardBody.last().waitFor(); //instructor way to wait latest
   //   await page.waitForLoadState("networkidle"); //instructor way to wait old
   const products = await cardBody.allTextContents();
   console.log(products);
+  page.pause();
 });
