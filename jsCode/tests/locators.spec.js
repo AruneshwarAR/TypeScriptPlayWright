@@ -62,7 +62,16 @@ test.only("UI Test", async ({ page }) => {
   const dropDown = page.locator("select.form-control");
   await dropDown.selectOption("consult");
   await page.locator("[type='checkbox']").check();
-  await page.pause();
+  console.log(await page.locator("span.radiotextsty").last().isChecked());
+  await expect(page.locator("span.radiotextsty").last()).toBeChecked();
+  expect(
+    await page.locator("span.radiotextsty").first().isChecked()
+  ).toBeFalsy();
+  await expect(page.locator('[href="https://qasummit.org/"]')).toHaveAttribute(
+    "class",
+    "blinkingText"
+  );
+  //await page.pause();
   await signIn.click();
   await card.last().waitFor();
   let Products = await card.allTextContents();
