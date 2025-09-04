@@ -59,7 +59,8 @@ test.only("UI Test", async ({ page }) => {
   await passWord.fill("learning");
   await page.locator("span.radiotextsty").last().click();
   await page.getByRole("button", { name: "Okay" }).click();
-  await page.locator("select.form-control").selectOption("consult");
+  const dropDown = page.locator("select.form-control");
+  await dropDown.selectOption("consult");
   await page.locator("[type='checkbox']").check();
   await page.pause();
   await signIn.click();
