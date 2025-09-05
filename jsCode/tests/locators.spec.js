@@ -47,7 +47,7 @@ test("browser Rahulshetty academy client", async ({ page }) => {
   console.log(products);
 });
 
-test.only("UI Test", async ({ page }) => {
+test("UI Test", async ({ page }) => {
   const userName = page.locator("#username");
   const passWord = page.locator("#password");
   const signIn = page.locator("[value='Sign In']");
@@ -77,4 +77,24 @@ test.only("UI Test", async ({ page }) => {
   let Products = await card.allTextContents();
   console.log(Products.toString());
   console.log(Products);
+});
+
+test.only("multiple window handle", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  const userName = page.locator("#username");
+  const document = page.locator("[href*='documents-request']");
+  await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+
+  const [newPage] = await Promise.all([
+    context.waitForEvent("page"),
+    document.click(),
+  ]);
+  const emailText = await newPage.locator(".red").textContent();
+  console.log(emailText);
+  const inpuText = emailText.split("@")[1].split(" ")[0];
+  await userName.fill(inpuText);
+  await page.keyboard.press("Tab");
+  console.log(await userName.inputValue());
+  await expect(userName).toHaveValue("rahulshettyacademy.com");
 });
