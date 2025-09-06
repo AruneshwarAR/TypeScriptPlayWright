@@ -39,7 +39,6 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   await userName.fill("appu@kutti.com");
   await passWord.fill("Appukutti1");
   await loginbtn.click();
-  // await page.pause();
   //await expect(cardBody.last()).toBeVisible(); //aruneshwar way to wait
   await cardBody.last().waitFor(); //instructor way to wait latest
   //   await page.waitForLoadState("networkidle"); //instructor way to wait old
@@ -53,6 +52,10 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
       await page.locator("div button .fa-shopping-cart").nth(product).click();
     }
   }
+  await page.waitForEvent();
+  await expect(page.locator(".toast-success")).toBeVisible;
+  await page.pause();
+  await page.click("");
 });
 
 test("UI Test", async ({ page }) => {
