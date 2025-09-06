@@ -28,7 +28,7 @@ test("browser launch", async ({ page }) => {
   //   }
 });
 
-test("browser Rahulshetty academy client", async ({ page }) => {
+test.only("browser Rahulshetty academy client", async ({ page }) => {
   const loginPage = "https://rahulshettyacademy.com/client/auth/login";
   const userName = page.locator("#userEmail"); //appu@kutti.com
   const passWord = page.locator("#userPassword"); //Appukutti1
@@ -45,6 +45,11 @@ test("browser Rahulshetty academy client", async ({ page }) => {
   //   await page.waitForLoadState("networkidle"); //instructor way to wait old
   const products = await cardBody.allTextContents();
   console.log(products);
+  for (let product in products) {
+    if (product === "ADIDAS ORIGINAL") {
+      console.log("found adidas");
+    }
+  }
 });
 
 test("UI Test", async ({ page }) => {
@@ -79,7 +84,7 @@ test("UI Test", async ({ page }) => {
   console.log(Products);
 });
 
-test.only("multiple window handle", async ({ browser }) => {
+test("multiple window handle", async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
   const userName = page.locator("#username");
