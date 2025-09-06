@@ -44,10 +44,9 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   await cardBody.last().waitFor(); //instructor way to wait latest
   //   await page.waitForLoadState("networkidle"); //instructor way to wait old
   const products = await cardBody.allTextContents();
-  console.log(products);
   for (let product in products) {
     // if (product == "ADIDAS ORIGINAL") {
-    console.log("found adidas ${product}");
+    console.log(`found adidas ${product}`);
     // }
   }
 });
