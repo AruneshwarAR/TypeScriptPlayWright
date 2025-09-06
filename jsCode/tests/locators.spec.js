@@ -46,7 +46,11 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   const products = await cardBody.allTextContents();
   for (let product in products) {
     // if (product == "ADIDAS ORIGINAL") {
-    console.log(`found adidas ${product}`);
+    console.log(
+      `found adidas ${product}`,
+      await cardBody.nth(product).textContent()
+    );
+
     // }
   }
 });
