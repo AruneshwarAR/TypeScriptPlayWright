@@ -45,13 +45,13 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
   //   await page.waitForLoadState("networkidle"); //instructor way to wait old
   const products = await cardBody.allTextContents();
   for (let product in products) {
-    // if (product == "ADIDAS ORIGINAL") {
-    console.log(
-      `found adidas ${product}`,
-      await cardBody.nth(product).textContent()
-    );
-
-    // }
+    if ((await cardBody.nth(product).textContent()) == "ADIDAS ORIGINAL") {
+      console.log(
+        `found adidas ${product}`,
+        await cardBody.nth(product).textContent()
+      );
+      await page.locator("div button .fa-shopping-cart").nth(product).click();
+    }
   }
 });
 
