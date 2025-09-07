@@ -52,7 +52,7 @@ test.only("browser Rahulshetty academy client", async ({ page }) => {
       await page.locator("div button .fa-shopping-cart").nth(product).click();
     }
   }
-  await page.waitForEvent();
+  await page.waitForEvent("load");
   await expect(page.locator(".toast-success")).toBeVisible;
   await page.pause();
   await page.click("");
