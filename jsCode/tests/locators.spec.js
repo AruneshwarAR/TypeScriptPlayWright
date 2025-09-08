@@ -111,7 +111,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
       await dropDown.nth(i).click();
     }
   }
-  await page.pause();
+
   await page.locator("select.ddl").first().selectOption("01");
   await page.locator("select.ddl").last().selectOption("17");
   await page.locator("div:nth-child(2) > div:nth-child(2) > input").fill("123");
@@ -125,6 +125,8 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   await page.locator(".action__submit").click();
   //added color validation later
 
+  await page.locator("h1").waitFor();
+  console.log(await page.locator("h1").textContent());
   // assert same credentials username are appearing for shipping information
 
   // select country in dynamic dropdown
