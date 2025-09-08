@@ -92,12 +92,26 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   await expect(userDetails).toHaveValue(inputUserName);
 
   // click credit card and add payment details
-  await countryDetails.fill("India");
-  await page.pause;
-  await page
-    .locator("section button")
-    .filter({ has: page.getByRole("span", { name: "India" }) })
-    .click();
+  await countryDetails.click();
+
+  await countryDetails.pressSequentially("India", { delay: 100 });
+  // await page.pause();
+  // await page
+  //   .locator(".section .button")
+  //   .filter({ has: page.getByRole("span", { name: "India" }) })
+  //   .click();
+  const dropDown = page.locator("section.ta-results").locator("button");
+  await dropDown.last().waitFor();
+  const optionCount = await dropDown.count();
+  console.log(optionCount);
+  for (let i = 0; i < optionCount; ++i) {
+    let text = await dropDown.nth(i).textContent();
+    console.log(text.trim());
+    if (text.trim() == "India") {
+      await dropDown.nth(i).click();
+    }
+  }
+  await page.pause();
   await page.locator("select.ddl").first().selectOption("01");
   await page.locator("select.ddl").last().selectOption("17");
   await page.locator("div:nth-child(2) > div:nth-child(2) > input").fill("123");
