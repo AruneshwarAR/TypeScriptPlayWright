@@ -93,10 +93,11 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
 
   // click credit card and add payment details
   await countryDetails.fill("India");
-  // await page
-  //   .locator("section button")
-  //   .filter({ has: page.getByRole("span", { name: "India" }) })
-  //   .click();
+  await page.pause;
+  await page
+    .locator("section button")
+    .filter({ has: page.getByRole("span", { name: "India" }) })
+    .click();
   await page.locator("select.ddl").first().selectOption("01");
   await page.locator("select.ddl").last().selectOption("17");
   await page.locator("div:nth-child(2) > div:nth-child(2) > input").fill("123");
@@ -107,7 +108,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   await expect(page.locator(".form__cc .ng-star-inserted")).toContainText(
     "* Coupon Applied"
   );
-  await page.getByRole("a", { name: "Place Order " }).click();
+  await page.locator(".action__submit").click();
   //added color validation later
 
   // assert same credentials username are appearing for shipping information
