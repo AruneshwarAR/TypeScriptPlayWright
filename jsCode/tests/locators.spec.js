@@ -30,6 +30,7 @@ test("browser launch", async ({ page }) => {
 
 test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const loginPage = "https://rahulshettyacademy.com/client/auth/login";
+  const inputUserName = "appu@kutti.com";
   const userName = page.locator("#userEmail"); //appu@kutti.com
   const passWord = page.locator("#userPassword"); //Appukutti1
   const loginbtn = page.locator("#login");
@@ -44,9 +45,16 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const itemDetails = page.locator(".item__details");
   const itemTitle = itemDetails.locator(".item__title");
   const itemQuantity = itemDetails.locator(".item__quantity");
+  const userDetails = page
+    .locator("div.details__user div.user__name input")
+    .first();
+
+  const countryDetails = page
+    .locator("div.details__user div.user__name input")
+    .last();
 
   await page.goto(loginPage);
-  await userName.fill("appu@kutti.com");
+  await userName.fill(inputUserName);
   await passWord.fill("Appukutti1");
   await loginbtn.click();
   await expect(toast).toBeVisible();
@@ -81,7 +89,26 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   //after check out assert same product and same quantity appeared
   await expect(itemTitle).toContainText(productName);
   await expect(itemQuantity).toContainText("1");
+  await expect(userDetails).toHaveValue(inputUserName);
+
   // click credit card and add payment details
+  await countryDetails.fill("India");
+  // await page
+  //   .locator("section button")
+  //   .filter({ has: page.getByRole("span", { name: "India" }) })
+  //   .click();
+  await page.locator("select.ddl").first().selectOption("01");
+  await page.locator("select.ddl").last().selectOption("17");
+  await page.locator("div:nth-child(2) > div:nth-child(2) > input").fill("123");
+
+  await page.locator("[name='coupon']").fill("rahulshettyacademy");
+
+  await page.getByRole("button", { name: "Apply Coupon" }).click();
+  await expect(page.locator(".form__cc .ng-star-inserted")).toContainText(
+    "* Coupon Applied"
+  );
+  await page.getByRole("a", { name: "Place Order " }).click();
+  //added color validation later
 
   // assert same credentials username are appearing for shipping information
 
