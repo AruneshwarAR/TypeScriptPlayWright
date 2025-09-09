@@ -136,7 +136,9 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   //after click pay
 
   // check for thankyou for the order page and copy the orderid
-
+  const rawOrderId = page.locator("label.ng-star-inserted").textContent();
+  const orderId = rawOrderId.split(" | ")[1];
+  page.locator("label[routerlink='/dashboard/myorders']").click();
   // click orders history page
 
   //find the same order id and click view
