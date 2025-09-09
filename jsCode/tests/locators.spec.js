@@ -136,12 +136,12 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   //after click pay
 
   // check for thankyou for the order page and copy the orderid
-  const rawOrderId = page.locator("label.ng-star-inserted").textContent();
+  const rawOrderId = await page.locator("label.ng-star-inserted").textContent();
   const orderId = rawOrderId.split(" | ")[1];
-  page.locator("label[routerlink='/dashboard/myorders']").click();
+  await page.locator("label[routerlink='/dashboard/myorders']").click();
 
-  page.waitFor();
-  page
+  await page.waitFor();
+  await page
     .locator("th[scope='row']")
     .filter({ hasText: orderId })
     .getByRole("button", { name: "View" })
