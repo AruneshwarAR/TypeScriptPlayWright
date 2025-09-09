@@ -139,6 +139,14 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const rawOrderId = page.locator("label.ng-star-inserted").textContent();
   const orderId = rawOrderId.split(" | ")[1];
   page.locator("label[routerlink='/dashboard/myorders']").click();
+
+  page.waitFor();
+  page
+    .locator("th[scope='row']")
+    .filter({ hasText: orderId })
+    .getByRole("button", { name: "View" })
+    .click();
+
   // click orders history page
 
   //find the same order id and click view
