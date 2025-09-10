@@ -140,13 +140,14 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const orderId = rawOrderId.split(" | ")[1];
   await page.locator("label[routerlink='/dashboard/myorders']").click();
 
-  await page.waitFor();
-  await page
-    .locator("th[scope='row']")
-    .filter({ hasText: orderId })
-    .getByRole("button", { name: "View" })
-    .click();
+  await page.locator("h1").waitFor();
+  const parentLocat = "th[scope='row']";
+  const parent = page.locator(parentLocat).filter({ hasText: orderId });
+  await parent.waitFor();
 
+  // .getByRole("button", { name: "View" })
+  // .click();
+  await page.pause();
   // click orders history page
 
   //find the same order id and click view
