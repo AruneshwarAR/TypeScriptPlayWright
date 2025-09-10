@@ -37,7 +37,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const cardBody = page.locator(".card-body b");
   const toast = page.locator(".toast-success");
   const CartButton = page.locator("ul button .fa-shopping-cart");
-  const productName = "ADIDAS ORIGINAL";
+  const productName = "ZARA COAT 3";
   const MyCart = page.locator(".infoWrap .cartSection");
   const cartProduct = MyCart.locator("h3");
   const checkoutButton = page.getByRole("button", { name: "Checkout" });
@@ -145,9 +145,17 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const parent = page.locator(parentLocat).filter({ hasText: orderId });
   await parent.waitFor();
 
-  // .getByRole("button", { name: "View" })
-  // .click();
-  await page.pause();
+  // await page.pause();
+  await page
+    .getByRole("row", { name: orderId })
+    .getByRole("button")
+    .first()
+    .click();
+
+  await page.locator("text = ORDER SUMMARY").waitFor();
+
+  await expect(page.locator("div.title")).toContainText(productName);
+
   // click orders history page
 
   //find the same order id and click view
