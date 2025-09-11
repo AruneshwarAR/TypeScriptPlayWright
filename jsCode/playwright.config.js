@@ -25,10 +25,11 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  //prettier-ignore
   use: {
-    trace: "on-first-retry",
+    trace: "off",
     headless: false,
-    screenshot: "on",
+    screenshot: 'on',
     timeout: 30 * 1000, //timeout for whole test
     expect: {
       timeout: 5 * 1000, //timeout for assertion
