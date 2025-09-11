@@ -93,7 +93,9 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
 
   // click credit card and add payment details
   await countryDetails.click();
+  // assert same credentials username are appearing for shipping information
 
+  // select country in dynamic dropdown
   await countryDetails.pressSequentially("India", { delay: 100 });
   // await page.pause();
   // await page
@@ -116,32 +118,32 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   await page.locator("select.ddl").last().selectOption("17");
   await page.locator("div:nth-child(2) > div:nth-child(2) > input").fill("123");
 
+  //apply rahulshettyacademy coupon after applying after waiting for sometime verify *coupon applied is displayed
   await page.locator("[name='coupon']").fill("rahulshettyacademy");
 
   await page.getByRole("button", { name: "Apply Coupon" }).click();
   await expect(page.locator(".form__cc .ng-star-inserted")).toContainText(
     "* Coupon Applied"
   );
+  //after click pay
   await page.locator(".action__submit").click();
   //added color validation later
 
   await page.locator("h1").waitFor();
   console.log(await page.locator("h1").textContent());
-  // assert same credentials username are appearing for shipping information
-
-  // select country in dynamic dropdown
-
-  //apply rahulshettyacademy coupon after applying after waiting for sometime verify *coupon applied is displayed
 
   //after click pay
 
   // check for thankyou for the order page and copy the orderid
   const rawOrderId = await page.locator("label.ng-star-inserted").textContent();
   const orderId = rawOrderId.split(" | ")[1];
+  // click orders history page
   await page.locator("label[routerlink='/dashboard/myorders']").click();
 
   await page.locator("h1").waitFor();
   const parentLocat = "th[scope='row']";
+  //find the same order id and click view
+
   const parent = page.locator(parentLocat).filter({ hasText: orderId });
   await parent.waitFor();
 
@@ -153,14 +155,8 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
     .click();
 
   await page.locator("text = ORDER SUMMARY").waitFor();
-
-  await expect(page.locator("div.title")).toContainText(productName);
-
-  // click orders history page
-
-  //find the same order id and click view
-
   //check for the same order details present
+  await expect(page.locator("div.title")).toContainText(productName);
 });
 
 test("UI Test", async ({ page }) => {
