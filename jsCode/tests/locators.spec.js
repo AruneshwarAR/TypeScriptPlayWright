@@ -72,6 +72,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
         await cardBody.nth(product).textContent()
       );
       await page.locator("div button .fa-shopping-cart").nth(product).click();
+      break; //by instructor if found stop the loop to avoid looping again and save time
     }
   }
   // product added to the cart
@@ -111,6 +112,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
     console.log(text.trim());
     if (text.trim() == "India") {
       await dropDown.nth(i).click();
+      break; //by instructor if found stop the loop to avoid looping again and save time
     }
   }
 
