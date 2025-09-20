@@ -27,6 +27,18 @@ test("browser launch", async ({ page }) => {
   console.log(Products);
   //   }
 });
+test.beforeEach("login", async ({ page }) => {
+  const loginPage = "https://rahulshettyacademy.com/client/auth/login";
+  const inputUserName = "appu@kutti.com";
+  const userName = page.locator("#userEmail"); //appu@kutti.com
+  const passWord = page.locator("#userPassword"); //Appukutti1
+  const loginbtn = page.locator("#login");
+
+  await page.goto(loginPage);
+  await userName.fill(inputUserName);
+  await passWord.fill("Appukutti1");
+  await loginbtn.click();
+});
 
 test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const loginPage = "https://rahulshettyacademy.com/client/auth/login";
@@ -53,10 +65,6 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
     .locator("div.details__user div.user__name input")
     .last();
 
-  await page.goto(loginPage);
-  await userName.fill(inputUserName);
-  await passWord.fill("Appukutti1");
-  await loginbtn.click();
   await expect(toast).toBeVisible();
   await expect(toast).toContainText("Login");
 
