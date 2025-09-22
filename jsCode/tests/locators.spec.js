@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test";
+import { LoginPage } from "../pages/login";
+
 test("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
   const passWord = page.locator("#password");
@@ -28,16 +30,9 @@ test("browser launch", async ({ page }) => {
   //   }
 });
 test.beforeEach("login", async ({ page }) => {
-  const loginPage = "https://rahulshettyacademy.com/client/auth/login";
-  const inputUserName = "appu@kutti.com";
-  const userName = page.locator("#userEmail"); //appu@kutti.com
-  const passWord = page.locator("#userPassword"); //Appukutti1
-  const loginbtn = page.locator("#login");
-
-  await page.goto(loginPage);
-  await userName.fill(inputUserName);
-  await passWord.fill("Appukutti1");
-  await loginbtn.click();
+  const loginPage = new LoginPage(page);
+  await loginPage.goto();
+  await loginPage.login("appu@kutti.com", "Appukutti1");
 });
 
 test("browser Rahulshetty academy client E2E", async ({ page }) => {
