@@ -37,15 +37,9 @@ test.beforeEach("login", async ({ page }) => {
 });
 
 test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
-  // const loginPage = "https://rahulshettyacademy.com/client/auth/login";
   const inputUserName = "appu@kutti.com";
-  // const userName = page.locator("#userEmail"); //appu@kutti.com
-  // const passWord = page.locator("#userPassword"); //Appukutti1
-  // const loginbtn = page.locator("#login");
-  // const cardBody = page.locator(".card-body b");
-  // const toast = page.locator(".toast-success");
-  // const CartButton = page.locator("ul button .fa-shopping-cart");
   const productName = "ZARA COAT 3";
+
   const MyCart = page.locator(".infoWrap .cartSection");
   const cartProduct = MyCart.locator("h3");
   const checkoutButton = page.getByRole("button", { name: "Checkout" });
@@ -62,14 +56,13 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
     .last();
 
   const cartPage = new CartPage(page);
-
   await cartPage.expectNotification("Login");
-
   await cartPage.addProductsToCart(productName);
-
   //click cart section
   await cartPage.viewCart();
-  await page.pause();
+
+  // need to chane cartPage to dashboardPage
+
   //assert same product is added to the cart
   await expect(cartProduct).toContainText(productName);
 
