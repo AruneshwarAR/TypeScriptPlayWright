@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/login";
+import { CartPage } from "../pages/cart";
 
 test("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
@@ -36,14 +37,14 @@ test.beforeEach("login", async ({ page }) => {
 });
 
 test("browser Rahulshetty academy client E2E", async ({ page }) => {
-  const loginPage = "https://rahulshettyacademy.com/client/auth/login";
+  // const loginPage = "https://rahulshettyacademy.com/client/auth/login";
   const inputUserName = "appu@kutti.com";
-  const userName = page.locator("#userEmail"); //appu@kutti.com
-  const passWord = page.locator("#userPassword"); //Appukutti1
-  const loginbtn = page.locator("#login");
-  const cardBody = page.locator(".card-body b");
-  const toast = page.locator(".toast-success");
-  const CartButton = page.locator("ul button .fa-shopping-cart");
+  // const userName = page.locator("#userEmail"); //appu@kutti.com
+  // const passWord = page.locator("#userPassword"); //Appukutti1
+  // const loginbtn = page.locator("#login");
+  // const cardBody = page.locator(".card-body b");
+  // const toast = page.locator(".toast-success");
+  // const CartButton = page.locator("ul button .fa-shopping-cart");
   const productName = "ZARA COAT 3";
   const MyCart = page.locator(".infoWrap .cartSection");
   const cartProduct = MyCart.locator("h3");
@@ -60,30 +61,15 @@ test("browser Rahulshetty academy client E2E", async ({ page }) => {
     .locator("div.details__user div.user__name input")
     .last();
 
-  await expect(toast).toBeVisible();
-  await expect(toast).toContainText("Login");
+  const cartPage = new CartPage(page);
 
-  //await expect(cardBody.last()).toBeVisible(); //aruneshwar way to wait
-  await cardBody.last().waitFor(); //instructor way to wait latest
-  //   await page.waitForLoadState("networkidle"); //instructor way to wait old
-  const products = await cardBody.allTextContents();
-  //add selected product to the cart
-  for (let product in products) {
-    if ((await cardBody.nth(product).textContent()) == productName) {
-      console.log(
-        `found adidas ${product}`,
-        await cardBody.nth(product).textContent()
-      );
-      await page.locator("div button .fa-shopping-cart").nth(product).click();
-      break; //by instructor if found stop the loop to avoid looping again and save time
-    }
-  }
-  // product added to the cart
-  await expect(toast).toBeVisible();
-  await expect(toast).toContainText("Cart");
+  await cartPage.expectNotification("Login");
+
+  await cartPage.addProductsToCart(productName);
+
   //click cart section
-  await CartButton.click();
-
+  await viewCart();
+  await page.pause();
   //assert same product is added to the cart
   await expect(cartProduct).toContainText(productName);
 
