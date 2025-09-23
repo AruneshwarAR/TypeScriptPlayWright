@@ -68,7 +68,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   await cartPage.addProductsToCart(productName);
 
   //click cart section
-  await viewCart();
+  await cartPage.viewCart();
   await page.pause();
   //assert same product is added to the cart
   await expect(cartProduct).toContainText(productName);
