@@ -36,7 +36,7 @@ test.beforeEach("login", async ({ page }) => {
   await loginPage.login("appu@kutti.com", "Appukutti1");
 });
 
-test("browser Rahulshetty academy client E2E", async ({ page }) => {
+test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   // const loginPage = "https://rahulshettyacademy.com/client/auth/login";
   const inputUserName = "appu@kutti.com";
   // const userName = page.locator("#userEmail"); //appu@kutti.com
