@@ -80,11 +80,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
 
   // select country in dynamic dropdown
   await countryDetails.pressSequentially("India", { delay: 100 });
-  // await page.pause();
-  // await page
-  //   .locator(".section .button")
-  //   .filter({ has: page.getByRole("span", { name: "India" }) })
-  //   .click();
+
   const dropDown = page.locator("section.ta-results").locator("button");
   await dropDown.last().waitFor();
   const optionCount = await dropDown.count();
