@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/login";
-import { CartPage } from "../pages/cart";
+import { DashboardPage } from "../pages/dashboard";
 
 test("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
@@ -55,11 +55,11 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
     .locator("div.details__user div.user__name input")
     .last();
 
-  const cartPage = new CartPage(page);
-  await cartPage.expectNotification("Login");
-  await cartPage.addProductsToCart(productName);
+  const dashboardPage = new DashboardPage(page);
+  await dashboardPage.expectNotification("Login");
+  await dashboardPage.addProductsToCart(productName);
   //click cart section
-  await cartPage.viewCart();
+  await dashboardPage.viewCart();
 
   // need to chane cartPage to dashboardPage
 

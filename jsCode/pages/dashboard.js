@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-export class CartPage {
+export class DashboardPage {
   constructor(page) {
     this.page = page;
     this.toastNotificationMessage = page.locator(".toast-success");
