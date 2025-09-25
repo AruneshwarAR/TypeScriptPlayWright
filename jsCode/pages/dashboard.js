@@ -31,7 +31,7 @@ export class DashboardPage {
     await this.expectNotification("Cart");
     //click cart section
   }
-  async viewCart() {
+  async navigateToCart() {
     await this.CartButton.click();
   }
 }

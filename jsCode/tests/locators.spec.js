@@ -55,7 +55,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const dashboardPage = new DashboardPage(page);
   await dashboardPage.expectNotification("Login");
   await dashboardPage.addProductsToCart(productName);
-  await dashboardPage.viewCart();
+  await dashboardPage.navigateToCart();
 
   const cartPage = new CartPage(page);
   await cartPage.checkProducInCart(productName);
