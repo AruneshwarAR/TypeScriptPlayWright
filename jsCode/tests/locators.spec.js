@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/login";
 import { DashboardPage } from "../pages/dashboard";
+import { CartPage } from "../pages/cart";
 
 test("browser launch", async ({ page }) => {
   const userName = page.locator("#username");
@@ -39,10 +40,6 @@ test.beforeEach("login", async ({ page }) => {
 test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const inputUserName = "appu@kutti.com";
   const productName = "ZARA COAT 3";
-
-  const MyCart = page.locator(".infoWrap .cartSection");
-  const cartProduct = MyCart.locator("h3");
-  const checkoutButton = page.getByRole("button", { name: "Checkout" });
   // payment method page
   const itemDetails = page.locator(".item__details");
   const itemTitle = itemDetails.locator(".item__title");
@@ -58,16 +55,11 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   const dashboardPage = new DashboardPage(page);
   await dashboardPage.expectNotification("Login");
   await dashboardPage.addProductsToCart(productName);
-  //click cart section
   await dashboardPage.viewCart();
 
-  // need to chane cartPage to dashboardPage
-
-  //assert same product is added to the cart
-  await expect(cartProduct).toContainText(productName);
-
-  // after successful assert click checkout
-  await checkoutButton.click();
+  const cartPage = new CartPage(page);
+  await cartPage.checkProducInCart(productName);
+  await cartPage.clickCheckoutButton();
 
   //after check out assert same product and same quantity appeared
   await expect(itemTitle).toContainText(productName);
