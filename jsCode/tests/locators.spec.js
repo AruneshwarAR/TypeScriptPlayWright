@@ -61,6 +61,7 @@ test.only("browser Rahulshetty academy client E2E", async ({ page }) => {
   await cartPage.checkProducInCart(productName);
   await cartPage.clickCheckoutButton();
 
+  await page.pause();
   //after check out assert same product and same quantity appeared
   await expect(itemTitle).toContainText(productName);
   await expect(itemQuantity).toContainText("1");
