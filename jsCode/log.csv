@@ -1,0 +1,120 @@
+"dc531b9","Aruneshwar AR","Thu, 25 Sep 2025 21:08:41 +0530","renamed viewCart to navigateToCart",	 2 files changed, 2 insertions(+), 2 deletions(-)
+	"47d865c","Aruneshwar AR","Thu, 25 Sep 2025 21:04:22 +0530","added cart page pom",
+ 2 files changed, 19 insertions(+), 12 deletions(-)	
+"f82d7c4","Aruneshwar AR","Thu, 25 Sep 2025 20:50:32 +0530","renamed cartPage to dashboardPage",	 2 files changed, 6 insertions(+), 6 deletions(-)
+	"175ef01","Aruneshwar AR","Wed, 24 Sep 2025 21:39:46 +0530","removed commented code",
+ 1 file changed, 1 insertion(+), 5 deletions(-)	
+"6016fd2","Aruneshwar AR","Tue, 23 Sep 2025 19:28:40 +0530","removed commented code and added comment on what to do next",	 1 file changed, 4 insertions(+), 11 deletions(-)
+	"100afd2","Aruneshwar AR","Tue, 23 Sep 2025 19:24:37 +0530","added missing object name",
+ 1 file changed, 1 insertion(+), 1 deletion(-)	
+"5a74971","Aruneshwar AR","Tue, 23 Sep 2025 19:22:24 +0530","added import { expect } from "@playwright/test";",	 1 file changed, 1 insertion(+)
+	"b7ecbaa","Aruneshwar AR","Tue, 23 Sep 2025 19:20:37 +0530","added only",
+ 1 file changed, 1 insertion(+), 1 deletion(-)	
+"c47e547","Aruneshwar AR","Tue, 23 Sep 2025 19:19:56 +0530","cart page",	 2 files changed, 52 insertions(+), 30 deletions(-)
+	"a57d563","Aruneshwar AR","Tue, 23 Sep 2025 18:53:35 +0530","created cart.js",
+ 1 file changed, 0 insertions(+), 0 deletions(-)	
+"aff5c5e","Aruneshwar AR","Mon, 22 Sep 2025 23:08:55 +0530",""refactor: convert login.js to Playwright Page Object Model"",	 4 files changed, 250 insertions(+), 186 deletions(-)
+	"57c1369","Aruneshwar AR","Sun, 21 Sep 2025 23:37:34 +0530","remove test only from locators.spec.js",
+ 1 file changed, 1 insertion(+), 1 deletion(-)	
+"b49ff64","Aruneshwar AR","Sat, 20 Sep 2025 19:10:33 +0530","added beforeEach for login page",	 1 file changed, 12 insertions(+), 4 deletions(-)
+	"75cfd5f","Aruneshwar AR","Mon, 15 Sep 2025 22:25:27 +0530","click gender select option",
+ 1 file changed, 1 insertion(+)	
+"b88d796","Aruneshwar AR","Mon, 15 Sep 2025 22:24:24 +0530","click Employed",	 1 file changed, 1 insertion(+)
+	"76f1d9e","Aruneshwar AR","Sun, 14 Sep 2025 22:01:23 +0530","added specialLocator test",
+ 1 file changed, 5 insertions(+)	
+"704132e","Aruneshwar AR","Fri, 12 Sep 2025 22:57:16 +0530","code review with instrcutor's code",	 1 file changed, 2 insertions(+)
+	"a9077f8","Aruneshwar AR","Thu, 11 Sep 2025 22:35:44 +0530","trace on /trace off",
+ 1 file changed, 3 insertions(+), 2 deletions(-)	
+"3cfcec3","Aruneshwar AR","Thu, 11 Sep 2025 22:20:24 +0530","add comments to respective code",	 1 file changed, 8 insertions(+), 12 deletions(-)
+	"a6f4244","Aruneshwar AR","Wed, 10 Sep 2025 21:10:38 +0530","completed E2E, need to validate with instructor",
+ 1 file changed, 12 insertions(+), 4 deletions(-)	
+"1c4cc73","Aruneshwar AR","Wed, 10 Sep 2025 20:46:20 +0530","located the order need to click the button",	 1 file changed, 7 insertions(+), 6 deletions(-)
+	"d7c9d40","Aruneshwar AR","Tue, 9 Sep 2025 19:50:17 +0530","added missed await",
+ 1 file changed, 4 insertions(+), 4 deletions(-)	
+"47ad65c","Aruneshwar AR","Tue, 9 Sep 2025 19:49:01 +0530","added filter locator for finding order id",	 1 file changed, 8 insertions(+)
+	"bd61e6d","Aruneshwar AR","Tue, 9 Sep 2025 19:39:26 +0530","got order id and clicked order history page",
+ 1 file changed, 3 insertions(+), 1 deletion(-)	
+"526f5a8","Aruneshwar AR","Mon, 8 Sep 2025 20:55:33 +0530","complete waitfor loading thankyou for the order",	 1 file changed, 3 insertions(+), 1 deletion(-)
+	"9492758","Aruneshwar AR","Mon, 8 Sep 2025 20:50:17 +0530","handled auto drop down using nth for loop and complete payment page",
+ 1 file changed, 20 insertions(+), 6 deletions(-)	
+"969ff8e","Aruneshwar AR","Mon, 8 Sep 2025 20:20:16 +0530","changed the place order location and added pause to debugg the country search",	 1 file changed, 6 insertions(+), 5 deletions(-)
+	"11b8853","Aruneshwar AR","Mon, 8 Sep 2025 20:12:07 +0530","completed till payment page",
+ 1 file changed, 28 insertions(+), 1 deletion(-)	
+"8b5d1d3","Aruneshwar AR","Mon, 8 Sep 2025 19:20:43 +0530","added locators to assert contents in payment page",	 1 file changed, 6 insertions(+), 1 deletion(-)
+	"76ec432","Aruneshwar AR","Mon, 8 Sep 2025 19:09:23 +0530","added e2e test step to follow and used getByRole("button",{name:"Checkout"})",
+ 1 file changed, 43 insertions(+), 6 deletions(-)	
+"1d3124a","Aruneshwar AR","Sun, 7 Sep 2025 08:27:22 +0530","added load as parameter for waiForEvent",	 1 file changed, 1 insertion(+), 1 deletion(-)
+	"97e54a3","Aruneshwar AR","Sat, 6 Sep 2025 23:29:29 +0530","expect success popup",
+ 1 file changed, 4 insertions(+), 1 deletion(-)	
+"9b6a8f2","Aruneshwar AR","Sat, 6 Sep 2025 23:16:53 +0530","added to car addidas",	 1 file changed, 7 insertions(+), 7 deletions(-)
+	"5969af1","Aruneshwar AR","Sat, 6 Sep 2025 23:12:58 +0530","nth element",
+ 1 file changed, 5 insertions(+), 1 deletion(-)	
+"9849c80","Aruneshwar AR","Sat, 6 Sep 2025 23:09:17 +0530","changed console log",	 1 file changed, 1 insertion(+), 2 deletions(-)
+	"abd3138","Aruneshwar AR","Sat, 6 Sep 2025 23:06:40 +0530","simple print array",
+ 1 file changed, 4 insertions(+), 4 deletions(-)	
+"aef9cfd","Aruneshwar AR","Sat, 6 Sep 2025 23:05:11 +0530","added simple validation",	 1 file changed, 7 insertions(+), 2 deletions(-)
+	"2f8eca1","Aruneshwar AR","Fri, 5 Sep 2025 07:26:41 +0530","multiple windows handle, expect().toHaveValue("") and locator.inputValue()",
+ 1 file changed, 21 insertions(+), 1 deletion(-)	
+"2ab6aa5","Aruneshwar AR","Thu, 4 Sep 2025 08:52:00 +0530","toHaveAttribute",	 1 file changed, 10 insertions(+), 1 deletion(-)
+	"ad6060d","Aruneshwar AR","Thu, 4 Sep 2025 08:00:11 +0530","instructor way of dropDown",
+ 1 file changed, 2 insertions(+), 1 deletion(-)	
+"0dd6386","Aruneshwar AR","Thu, 4 Sep 2025 07:59:10 +0530","Aruneshwar's way of dropdown select",	 1 file changed, 3 insertions(+)
+	"3c28404","Aruneshwar AR","Wed, 3 Sep 2025 07:29:34 +0530","added "UI Test" test",
+ 1 file changed, 20 insertions(+), 1 deletion(-)	
+"ac4a82b","Aruneshwar AR","Wed, 3 Sep 2025 06:33:18 +0530","add await to page.pause();",	 1 file changed, 1 insertion(+), 1 deletion(-)
+	"3b21bec","Aruneshwar AR","Wed, 3 Sep 2025 06:32:07 +0530","added missing await at page.goto and .waitFor() is for single element and throws error for elemets",
+ 1 file changed, 4 insertions(+), 3 deletions(-)	
+"db4d325","Aruneshwar AR","Tue, 2 Sep 2025 08:49:33 +0530","multiple waits for allTextContents();",	 1 file changed, 3 insertions(+), 1 deletion(-)
+	"471f69b","Aruneshwar AR","Tue, 2 Sep 2025 08:33:46 +0530","added page.goto",
+ 1 file changed, 2 insertions(+), 1 deletion(-)	
+"3f286a2","Aruneshwar AR","Tue, 2 Sep 2025 08:32:07 +0530","login and printing the available products",	 1 file changed, 10 insertions(+), 1 deletion(-)
+	"faa92c6","Aruneshwar AR","Tue, 2 Sep 2025 08:15:28 +0530","browser Rahulshetty academy client",
+ 1 file changed, 7 insertions(+), 1 deletion(-)	
+"2206680","Aruneshwar AR","Tue, 2 Sep 2025 08:07:15 +0530","expect .last() .tobeVisible()",	 1 file changed, 1 insertion(+), 1 deletion(-)
+	"e4bcfb1","Aruneshwar AR","Tue, 2 Sep 2025 08:04:39 +0530","allTextContent handson",
+ 1 file changed, 11 insertions(+), 5 deletions(-)	
+"89f3c75","Aruneshwar AR","Mon, 1 Sep 2025 22:37:46 +0530","allTextContent",	 1 file changed, 1 insertion(+)
+	"a796b53","Aruneshwar AR","Mon, 1 Sep 2025 22:36:36 +0530","stored locators into const variable",
+ 1 file changed, 14 insertions(+), 3 deletions(-)	
+"b12933d","Aruneshwar AR","Mon, 1 Sep 2025 22:11:16 +0530","assert .toContainsText",	 1 file changed, 2 insertions(+), 1 deletion(-)
+	"91c3426","Aruneshwar AR","Mon, 1 Sep 2025 21:50:03 +0530","print login error block",
+ 1 file changed, 2 insertions(+), 1 deletion(-)	
+"50db01b","Aruneshwar AR","Mon, 1 Sep 2025 21:49:26 +0530","test runs only in google chrome",	 1 file changed, 26 insertions(+), 26 deletions(-)
+	"ceef377","Aruneshwar AR","Mon, 1 Sep 2025 21:13:20 +0530","automated incorrect login",
+ 1 file changed, 6 insertions(+), 2 deletions(-)	
+"e78bb37","Aruneshwar AR","Mon, 1 Sep 2025 20:55:20 +0530","removed await",	 1 file changed, 1 insertion(+), 1 deletion(-)
+	"86dd606","Aruneshwar AR","Mon, 1 Sep 2025 20:54:31 +0530","learningPlaywright",
+ 2 files changed, 9 insertions(+)	
+"23af494","Aruneshwar AR","Mon, 1 Sep 2025 20:40:05 +0530","inhertance examples",	 1 file changed, 9 insertions(+)
+	"fba1a3b","Aruneshwar AR","Mon, 1 Sep 2025 20:39:40 +0530","js inheritance",
+ 1 file changed, 22 insertions(+)	
+"a0b3cfd","Aruneshwar AR","Sun, 31 Aug 2025 20:58:30 +0530","exported a class and commented previous code",	 2 files changed, 10 insertions(+), 8 deletions(-)
+	"67d3242","Aruneshwar AR","Sun, 31 Aug 2025 20:40:09 +0530","class example",
+ 1 file changed, 23 insertions(+)	
+"26627a6","Aruneshwar AR","Sun, 31 Aug 2025 20:16:43 +0530","completed objects",	 1 file changed, 16 insertions(+)
+	"7d0e1b2","Aruneshwar AR","Sun, 31 Aug 2025 19:51:53 +0530","js objects",
+ 1 file changed, 16 insertions(+)	
+"ae580e0","Aruneshwar AR","Sun, 31 Aug 2025 19:45:12 +0530","string Manipulation handson",	 5 files changed, 31 insertions(+)
+	"00ac225","Aruneshwar AR","Sun, 31 Aug 2025 10:05:00 +0530","added stringManipulation.js",
+ 1 file changed, 0 insertions(+), 0 deletions(-)	
+"4178d19","Aruneshwar AR","Sat, 30 Aug 2025 15:01:45 +0530","normal function and arrow function and function assigned to let variable",	 1 file changed, 9 insertions(+)
+	"3671427","Aruneshwar AR","Sat, 30 Aug 2025 13:58:49 +0530","string sort and number sort",
+ 1 file changed, 20 insertions(+)	
+"97e70b2","Aruneshwar AR","Sat, 30 Aug 2025 13:07:04 +0530","filter reduce map",	 1 file changed, 31 insertions(+)
+	"41beec1","Aruneshwar AR","Sat, 30 Aug 2025 11:36:24 +0530","learnt js reduce in array",
+ 1 file changed, 5 insertions(+)	
+"622b846","Aruneshwar AR","Sat, 30 Aug 2025 08:51:55 +0530","added screnshot:"on",",	 1 file changed, 17 insertions(+), 16 deletions(-)
+	"f5ed170","Aruneshwar AR","Sat, 30 Aug 2025 08:42:13 +0530","added headless:false,",
+ 1 file changed, 11 insertions(+), 15 deletions(-)	
+"3acedbb","Aruneshwar AR","Sat, 30 Aug 2025 08:40:01 +0530","sample back to typeScriptCode",	 6 files changed, 0 insertions(+), 0 deletions(-)
+	"da859ea","Aruneshwar AR","Sat, 30 Aug 2025 08:39:18 +0530","created new jsCode playwright to follow RahulShetty playwright tutorials",
+ 7 files changed, 694 insertions(+)	
+"3e5b409","Aruneshwar AR","Sat, 30 Aug 2025 08:35:31 +0530","practiced renamming and moving mv * newfolder; mv .git ..",	 6 files changed, 0 insertions(+), 0 deletions(-)
+	"ca37e5c","Aruneshwar AR","Sat, 30 Aug 2025 08:26:50 +0530","move all typeScript code to new folder called typeScriptCode",
+ 15 files changed, 0 insertions(+), 0 deletions(-)	
+"2b96664","Aruneshwar AR","Sat, 30 Aug 2025 08:18:10 +0530","headless:false and created new spec ts with js script",	 2 files changed, 6 insertions(+)
+	"0aed1db","Aruneshwar AR","Fri, 29 Aug 2025 21:15:14 +0530","added sample e2e using npm init playwright@latest",
+ 6 files changed, 652 insertions(+)	
+"7d71af1","Aruneshwar AR","Fri, 29 Aug 2025 21:05:13 +0530","added new test",	 3 files changed, 18 insertions(+), 2 deletions(-)
+	"4b2256d","Aruneshwar AR","Thu, 28 Aug 2025 23:53:17 +0530","first commit",
+ 7 files changed, 684 insertions(+)	
